@@ -2,7 +2,11 @@
 
 bash run.sh 
 
+
 ou
 
+
 npm install
-npm run gplayscrapper
+
+npm run googleplayscrapper
+
