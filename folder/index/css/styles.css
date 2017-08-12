@@ -1,0 +1,123 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+.row {
+    padding: 2vh 2vw 1vh 2vw;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, .9);
+    color: rgba(255, 255, 255, 1);
+    padding: 2vw 2vw 1vw 2vw;
+}
+
+header {
+    background-repeat: no-repeat;
+    height: 21vh;
+    background-size: 20vh;
+    padding-left: 22vh;
+}
+
+.summary {
+    padding-top: 4vh;
+}
+
+.status {
+    font-size: 2.1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px #333333;
+}
+
+.close-status {
+    margin: 0px;
+    float: right;
+}
+
+.close-status a,
+a.sub-status {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+.close-status a {
+    padding: 1vh 3vh;
+    border: 1px solid #fff;
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.sub-status {
+    font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+footer p {
+    margin: 0;
+}
+
+footer {
+    clear: both;
+    padding: 1vh 2vh;
+    text-align: center;
+}
+
+.error {
+    height: 80vh;
+    padding-top: 8vh;
+    text-align: center;
+}
+
+.error .container {
+    padding: 2vh;
+}
+
+.make-animate {
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -ms-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+}
+
+.lightbox {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .9);
+    color: #ffffff;
+    z-index: 501;
+    opacity: 0;
+    padding: 5vh;
+    overflow-y: scroll;
+}
+
+.lightbox:target {
+    top: 0%;
+    bottom: 0%;
+    opacity: 1;
+}
+
+.comments-list {
+    padding: 1vh;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-bottom: 0px;
+}
+
+.col-left {
+    width: 55px;
+    float: left;
+}
+
+.col-right {
+    margin-left: 70px;
+}
+
+.clear {
+    clear: both;
+}

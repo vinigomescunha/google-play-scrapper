@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="meuScrapperGooglePlay" ng-controller="meuController">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="300">
+  <link rel="stylesheet" href="index/css/styles.css">
+  <title>{{ info.title }} - Google Play</title>
+  <link rel="shortcut icon" type="image/png" ng-href="{{ info.icon }}" />
+</head>
+
+<body style="background-image: url({{ info.screenshots[0] }})">
+  <div class="row error" ng-if="info.error || !info">
+    <div class="container">
+      <h1>{{ info.title }}</h1>
+      <h2>{{ info.content }}</h2>
+    </div>
+  </div>
+  <div class="row top" ng-if="!info.error && info">
+    <div class="container">
+      <header style="background-image: url({{ info.icon }})">
+        <div class="summary">
+          <h1>{{ info.title }}</h1>
+          <h3>{{ info.summary }}</h3>
+        </div>
+      </header>
+    </div>
+  </div>
+  <div class="row bg-row middle" ng-if="!info.error && info">
+    <div class="container">
+      <div>
+        <div class="status">Score : {{ info.score }}</div>
+        <div class="sub-status">Real Score : ({{ info.realScore }})</div>
+        <br />
+        <div class="status">Reviews : {{ info.reviews }}</div>
+        <p>
+          Notes:
+          <div class="sub-status" ng-repeat=" (key, histogram) in info.histogram">
+            {{ key }} => {{ histogram }}
+          </div>
+          <p><a href="#openComments" class="sub-status">Ver Comentários</a></p>
+          <p><a href="" class="sub-status" ng-click="loadFunctions()">Atualizar(forçar)</a></p>
+        </p>
+      </div>
+      <footer>
+        <p>
+          Last Update : {{ info.lastUpdate | date:'dd/MM/yyyy HH:mm' }}
+          Next Update: {{ info.nextUpdate | date:'dd/MM/yyyy HH:mm' }}
+        </p>
+      </footer>
+    </div>
+  </div>
+  <div id="openComments" class="lightbox make-animate">
+    <p class="close-status"><a href="#!">Fechar</a></p>
+    <h3>Ultimos Comentários</h3>
+    <br />
+    <div class="comments-list" ng-repeat="comment in info.comments">
+      <div class="col-left">
+        <a href="{{ comment.url }}" target=_blank>
+          <img ng-if="comment" width=50 src="{{ comment.userImage }}" />
+        </a>
+      </div>
+      <div class="col-right">
+        <div>
+          <b>Usuario:</b> {{ comment.userName }} |
+          <b>Nota:</b> {{ comment.score }} |
+          <b>Data:</b> {{ comment.date | date:'dd/MM/yyyy' }}
+        </div>
+        <div>{{ comment.text | noResenhaCompleta }}</div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</body>
+<script src="index/js/angular.1.6.4.min.js"></script>
+<script src="index/js/app.index.js"></script>
+
+</html>
